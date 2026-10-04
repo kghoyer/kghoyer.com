@@ -2027,3 +2027,24 @@ body {
     font-size: clamp(36px, 8vw, 48px);
   }
 }
+
+.project-actions {
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.evidence-case details a {
+  color: var(--teal);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  overflow-wrap: anywhere;
+}
+
+.evidence-case details a:hover {
+  color: var(--cream);
+}
+
+.evidence-case details a:focus-visible {
+  outline: 2px solid var(--teal);
+  outline-offset: 4px;
+}
