@@ -2048,3 +2048,60 @@ body {
   outline: 2px solid var(--teal);
   outline-offset: 4px;
 }
+
+.protocol-sources {
+  margin-top: 24px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(95, 200, 189, 0.25);
+}
+
+.protocol-sources summary {
+  color: var(--teal);
+  font-family: "Courier New", Courier, monospace;
+  font-size: 12px;
+  font-weight: normal;
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+}
+
+.protocol-sources summary:hover {
+  color: var(--cream);
+}
+
+.protocol-sources summary:focus-visible {
+  outline: 2px solid var(--teal);
+  outline-offset: 5px;
+  border-radius: 3px;
+}
+
+.protocol-sources ul {
+  margin: 18px 0 0;
+  padding-left: 20px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.75;
+}
+
+.protocol-sources li {
+  margin-bottom: 10px;
+  padding-left: 4px;
+}
+
+.protocol-sources li:last-child {
+  margin-bottom: 0;
+}
+
+.protocol-sources li::marker {
+  color: var(--teal);
+}
+
+@media (max-width: 600px) {
+  .protocol-sources summary {
+    font-size: 11px;
+  }
+
+  .protocol-sources ul {
+    font-size: 12px;
+  }
+}
