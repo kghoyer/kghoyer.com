@@ -2109,3 +2109,40 @@ body {
 #method {
   scroll-margin-top: 32px;
 }
+
+#audit-trace .source-trace p {
+  margin-top: 14px;
+  max-width: 68ch;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.75;
+  overflow-wrap: anywhere;
+}
+
+#audit-trace .source-trace p code {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.92em;
+  color: var(--cream);
+}
+
+#audit-trace .source-trace p a {
+  color: var(--teal);
+  text-decoration: underline;
+  text-decoration-color: rgba(95, 200, 189, 0.4);
+  text-underline-offset: 4px;
+}
+
+#audit-trace .source-trace p a code {
+  color: inherit;
+}
+
+#audit-trace .source-trace p a:hover {
+  color: var(--cream);
+  text-decoration-color: currentColor;
+}
+
+@media (max-width: 600px) {
+  #audit-trace .source-trace p {
+    font-size: 12px;
+  }
+}
