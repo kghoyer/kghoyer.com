@@ -2105,3 +2105,7 @@ body {
     font-size: 12px;
   }
 }
+
+#method {
+  scroll-margin-top: 32px;
+}
