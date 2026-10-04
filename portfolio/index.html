@@ -747,6 +747,34 @@ taxonomySteps.forEach(step => {
     });
   });
 });
+      function openMethodFromHash() {
+  if (window.location.hash !== "#method") return;
+
+  const methodButton = document.querySelector(
+    '.tab-button[data-tab="method"]'
+  );
+  const methodPanel = document.getElementById("method");
+
+  if (!methodButton || !methodPanel) return;
+
+  methodButton.click();
+
+  requestAnimationFrame(() => {
+    methodPanel.scrollIntoView({
+      behavior: "auto",
+      block: "start"
+    });
+  });
+}
+
+document.querySelectorAll('a[href="#method"]').forEach(link => {
+  link.addEventListener("click", () => {
+    openMethodFromHash();
+  });
+});
+
+window.addEventListener("hashchange", openMethodFromHash);
+openMethodFromHash();
 </script>
   </body>
 </html>
