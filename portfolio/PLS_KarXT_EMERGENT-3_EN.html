@@ -490,6 +490,46 @@
     display: none;
   }
 }
+
+.share-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.share-button {
+  padding: 10px 16px;
+  border: 1px solid var(--purple);
+  border-radius: 10px;
+  background: transparent;
+  color: var(--purple);
+  font: inherit;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.share-button:hover {
+  background: var(--purple);
+  color: var(--paper);
+}
+
+.share-button:focus-visible {
+  outline: 2px solid var(--purple);
+  outline-offset: 4px;
+}
+
+.share-status {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+@media print {
+  .share-row {
+    display: none;
+  }
+}
     
   </style>
 </head>
@@ -518,6 +558,15 @@
         <span class="chip">Registry <b>NCT04738123</b></span>
         <span class="chip">Protocol <b>KAR-009</b></span>
       </div>
+
+<div class="share-row">
+  <button class="share-button" id="share-button" type="button">
+    Share this summary ↗
+  </button>
+  <span class="share-status" id="share-status"
+        role="status" aria-live="polite"></span>
+</div>
+      
     </header>
 
     <div class="body">
@@ -1006,4 +1055,41 @@
     </footer>
 
   </main>
+
+<script>
+  const shareButton = document.getElementById("share-button");
+  const shareStatus = document.getElementById("share-status");
+
+  shareButton.addEventListener("click", async () => {
+    const url =
+      "https://kghoyer.com/portfolio/PLS_KarXT_EMERGENT-3_EN.html";
+
+    shareStatus.textContent = "";
+
+    if (typeof navigator.share === "function") {
+      try {
+        await navigator.share({
+          title: "EMERGENT-3 — Plain Language Summary",
+          text: "A plain-language summary of the EMERGENT-3 study.",
+          url
+        });
+        return;
+      } catch (error) {
+        if (error.name === "AbortError") return;
+      }
+    }
+
+    try {
+      await navigator.clipboard.writeText(url);
+      shareStatus.textContent = "Link copied!";
+    } catch {
+      shareStatus.textContent = "Copy the link below:";
+      const link = document.createElement("a");
+      link.href = url;
+      link.textContent = url;
+      shareStatus.append(document.createElement("br"), link);
+    }
+  });
+</script>
+  
 </body>
