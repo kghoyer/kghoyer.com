@@ -510,16 +510,25 @@
   transition: background 0.2s, color 0.2s;
 }
 
-.share-button:hover {
-  background: var(--purple);
-  color: var(--paper);
+.share-button {
+  font-size: 12px;
+  color: var(--purple);
+  font-weight: bold;
+  border: 1px solid var(--purple);
+  border-radius: 10px;
+  border-left: none;
+  border-right: none;
+  padding: 10px;
+  text-align: center;
+  font-family: "Courier New", Courier, monospace;
+  text-decoration: none;
+  text-transform: none;
+  letter-spacing: 0.08em;
+  background: transparent;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
 }
-
-.share-button:focus-visible {
-  outline: 2px solid var(--purple);
-  outline-offset: 4px;
-}
-
+    
 .share-status {
   color: var(--muted);
   font-size: 13px;
